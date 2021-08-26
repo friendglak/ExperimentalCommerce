@@ -13,7 +13,6 @@ const PresentationSec = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: 1000px;
-  
 `;
 
 const ButtonCategoria = styled.div`
@@ -45,6 +44,11 @@ const ContainerCategorias = styled.div`
   padding: 100px 80px 20px 80px;
   height: auto;
   place-content: center;
+
+  @media (max-width: 1245px) {
+    flex-direction: column;
+    margin: auto;
+  }
 `;
 
 const CategoriaHombre = styled.div`
@@ -56,6 +60,10 @@ const CategoriaHombre = styled.div`
   height: 800px;
   margin: 80px;
   position: relative;
+
+  @media (max-width: 1245px) {
+    width: auto;
+  }
 `;
 
 const CategoriaMujer = styled.div`
@@ -67,6 +75,10 @@ const CategoriaMujer = styled.div`
   height: 800px;
   margin: 80px;
   position: relative;
+
+  @media (max-width: 1245px) {
+    width: auto;
+  }
 `;
 
 const InfoRow = styled.div`

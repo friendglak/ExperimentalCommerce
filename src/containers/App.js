@@ -1,33 +1,47 @@
-import React from 'react';
-import GlobalStyle from '../globalStyles.js';
-import Navbar from '../components/Navbar.jsx';
-import Home from '../pages/Home/Home';
-import Proyect from '../pages/Proyects/Proyect'
-import Testimonials from '../pages/Testimonials/Testimonials'
-import ScrollToTop from '../components/ScrollToTop'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Footer from '../components/Footer.jsx';
+import React from "react";
+import GlobalStyle from "../globalStyles.js";
+import ScrollToTop from "../components/ScrollToTop";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
+//Layouts
+import MainLayout from "../layouts/MainLayout.js";
+//Pages
+import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login.js";
+import Register from "../pages/Register/Register";
 
 const App = () => {
   return (
     <Router>
       <GlobalStyle />
       <ScrollToTop />
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
-        <Route exact path="/PortafolioGeek/">
-          <Redirect to="/inicio" component={Home} />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/inicio" component={Home} />
-        </Route>
-        <Route path='/inicio' exact component={Home} />
-        <Route path='/proyects' component={Proyect} />
-        <Route path='/testimonios' component={Testimonials} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <MainLayout>
+              <Home />{" "}
+            </MainLayout>
+          )}
+        />
+        <Route
+          path="/register"
+          render={() => (
+            <MainLayout>
+              <Register />
+            </MainLayout>
+          )}
+        />
       </Switch>
-      <Footer />
-    </Router >
+      {/* <Footer /> */}
+    </Router>
   );
 };
 

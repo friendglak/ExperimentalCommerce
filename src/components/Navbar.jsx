@@ -43,7 +43,7 @@ const Navbar = () => {
             <IconContext.Provider value={{ color: '#fff' }}>
                 <Nav>
                     <NavbarContainer>
-                        <NavLogo to="/inicio" onClick={closeMobileMenu}>
+                        <NavLogo to="/" onClick={closeMobileMenu}>
                             EXPERIMENTAL
                         </NavLogo>
                         <MobileIcon onClick={handleClick}>
@@ -51,17 +51,17 @@ const Navbar = () => {
                         </MobileIcon>
                         <NavMenu onClick={handleClick} click={click}>
                             <NavItem>
-                                <NavLinks to='/inicio' onClick={closeMobileMenu}>
+                                <NavLinks to='/car' onClick={closeMobileMenu}>
                                     <AiOutlineShopping />
                                 </NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to='/proyects' onClick={closeMobileMenu}>
+                                <NavLinks to='/register' onClick={closeMobileMenu}>
                                     REGISTRARSE
                                 </NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to='/testimonios' onClick={closeMobileMenu}>
+                                <NavLinks to='/login' onClick={closeMobileMenu}>
                                     INICIAR SESIÓN
                                 </NavLinks>
                             </NavItem>

@@ -1,8 +1,8 @@
 {
-  "homepage": "https://friendglak.github.io/PortafolioGeek/",
-  "name": "portafoliogeek",
+  "homepage": "https://friendglak.github.io/ExperimentalCommerce/",
+  "name": "experimentalcommerce",
   "version": "1.0.0",
-  "description": "¡Un maravilloso portafolio!",
+  "description": "¡Un maravilloso ecommerce!",
   "main": "index.js",
   "dependencies": {
     "@babel/core": "^7.14.6",
@@ -39,11 +39,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FriendGlak/PortafolioGeek.git"
+    "url": "git+https://github.com/FriendGlak/ExperimentalCommerce.git"
   },
   "author": "FriendGlak",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FriendGlak/PortafolioGeek/issues"
+    "url": "https://github.com/FriendGlak/ExperimentalCommerce/issues"
   }
 }

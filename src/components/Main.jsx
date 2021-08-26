@@ -7,14 +7,13 @@ import {
     ButtonCategoria
 } from '../style/PresentationStyles';
 
-const Presentation = ({
+const Main = ({
     lightBg,
 
 }) => {
     return (
         <>
             <PresentationSec lightBg={lightBg} />
-
             <ContainerCategorias>
                 <CategoriaHombre>
                     <ButtonCategoria>HOMBRE</ButtonCategoria>
@@ -27,4 +26,4 @@ const Presentation = ({
     );
 };
 
-export default Presentation;
+export default Main;

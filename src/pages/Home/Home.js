@@ -1,14 +1,12 @@
-import React from 'react';
-import {  homeObjOne } from './Data';
-import Presentation from '../../components/Presentation.jsx';
-
+import React from "react";
+import Main from "../../components/Main.jsx";
 
 const Home = () => {
-    return (
-        <>
-            <Presentation {...homeObjOne} />          
-        </>
-    );
+  return (
+    <>
+      <Main />
+    </>
+  );
 };
 
 export default Home;
