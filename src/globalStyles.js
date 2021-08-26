@@ -50,4 +50,38 @@ export const Button = styled.button`
   }
 `;
 
+export const Button2 = styled.button`
+  display: block;
+  width: 100%;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
+  background: black;
+  padding: 1rem;
+  margin: 0 aut 1rem;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+`;
+
+export const Button3 = styled.button`
+  display: block;
+  width: 100%;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: black;
+  background: white;
+  padding: 1rem;
+  margin: 0 aut 1rem;
+  border: 0;
+  outline: 1px solid black;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 20px 0px;
+`;
+
 export default GlobalStyle;

@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 const MainLayout = (props) => {
   return (
     <>
-      <Navbar />
+      <Navbar {...props} />
       <>{props.children}</>
       <Footer />
     </>

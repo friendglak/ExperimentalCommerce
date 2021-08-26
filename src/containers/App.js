@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+import "babel-polyfill";
 import GlobalStyle from "../globalStyles.js";
+import { auth, handleUserProfile } from "../firebase/utils.js";
 import ScrollToTop from "../components/ScrollToTop";
 import {
   BrowserRouter as Router,
@@ -10,39 +12,94 @@ import {
 
 //Layouts
 import MainLayout from "../layouts/MainLayout.js";
+import HomepageLayout from "../layouts/HomepageLayout";
+
 //Pages
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login.js";
 import Register from "../pages/Register/Register";
+import { Toaster } from "react-hot-toast";
 
-const App = () => {
-  return (
-    <Router>
-      <GlobalStyle />
-      <ScrollToTop />
-      {/* <Navbar /> */}
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <MainLayout>
-              <Home />{" "}
-            </MainLayout>
-          )}
-        />
-        <Route
-          path="/register"
-          render={() => (
-            <MainLayout>
-              <Register />
-            </MainLayout>
-          )}
-        />
-      </Switch>
-      {/* <Footer /> */}
-    </Router>
-  );
+const initialState = {
+  currentUser: null,
 };
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ...initialState,
+    };
+  }
+  authListener = null;
+
+  componentDidMount() {
+    this.authListener = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await handleUserProfile(userAuth);
+        userRef.onSnapshot((snapshot) => {
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              ...snapshot.data(),
+            },
+          });
+        });
+      }
+      this.setState({
+        ...initialState,
+      });
+    });
+  }
+  componentWillUnmount() {
+    this.authListener();
+  }
+
+  render() {
+    const { currentUser } = this.state;
+    return (
+      <Router>
+        <Toaster position="top-center" reverseOrder={false} />
+        <GlobalStyle />
+        <ScrollToTop />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <HomepageLayout currentUser={currentUser}>
+                <Home />{" "}
+              </HomepageLayout>
+            )}
+          />
+          <Route
+            path="/register"
+            render={() =>
+              currentUser ? (
+                <Redirect to="/" />
+              ) : (
+                <MainLayout currentUser={currentUser}>
+                  <Register />
+                </MainLayout>
+              )
+            }
+          />
+          <Route
+            path="/login"
+            render={() =>
+              currentUser ? (
+                <Redirect to="/" />
+              ) : (
+                <MainLayout currentUser={currentUser}>
+                  <Login />
+                </MainLayout>
+              )
+            }
+          />
+        </Switch>
+      </Router>
+    );
+  }
+}
 
 export default App;
