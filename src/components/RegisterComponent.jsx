@@ -62,6 +62,7 @@ class RegisterComponent extends Component {
                         <form onSubmit={this.handleFormSubmit}>
                             {/* onSubmit={handleSubmit} */}
                             <FormInput
+                                style={{ width: 600 }}
                                 type="text"
                                 name="displayName"
                                 value={displayName}
@@ -70,6 +71,7 @@ class RegisterComponent extends Component {
                             />
 
                             <FormInput
+                                style={{ width: 600 }}
                                 type="email"
                                 name="email"
                                 value={email}
@@ -78,6 +80,7 @@ class RegisterComponent extends Component {
                             />
 
                             <FormInput
+                                style={{ width: 600 }}
                                 type="password"
                                 name="password"
                                 value={password}
@@ -86,6 +89,7 @@ class RegisterComponent extends Component {
                             />
 
                             <FormInput
+                                style={{ width: 600 }}
                                 type="password"
                                 name="confirmPassword"
                                 value={confirmPassword}

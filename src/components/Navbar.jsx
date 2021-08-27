@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { AiOutlineShopping } from "react-icons/ai";
 import { IconContext } from 'react-icons/lib';
@@ -14,15 +15,11 @@ import {
     NavLinks,
     NavLinks2
 } from '../style/NavbarStyles';
-import { Button2 } from '../globalStyles';
-
-
 
 const Navbar = (props) => {
     const { currentUser } = props;
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true);
-
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false);
 
@@ -93,8 +90,5 @@ const Navbar = (props) => {
 
 Navbar.defaultProps = {
     currentUser: null
-}
-
-
-
-export default Navbar;
+}  
+  export default Navbar;

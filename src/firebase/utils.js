@@ -20,20 +20,25 @@ export const signInWithGoogle = () => auth.signInWithPopup(GoogleProvider);
 
 export const handleUserProfile = async (userAuth, additionalData) => {
   if (!userAuth) return;
+
   //Destructuro
   const { uid } = userAuth;
+
   //Accedo a la base de datos de firestore para comprobar que el usuario exista.
   const userRef = firestore.doc(`users/${uid}`);
   const snapshot = await userRef.get();
+  const userRoles = ["user"];
 
   if (!snapshot.exits) {
     const { displayName, email } = userAuth;
     const timestamp = new Date();
+
     try {
       await userRef.set({
         displayName,
         email,
         createdDate: timestamp,
+        userRoles,
         ...additionalData,
       });
     } catch (error) {

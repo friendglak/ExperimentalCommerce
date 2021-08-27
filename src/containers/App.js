@@ -9,6 +9,13 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
+//Components
+import AdminToolbar from "../components/AdminTool.jsx";
+
+//HOC
+import WithAuth from "../hoc/withAuth.js";
 
 //Layouts
 import MainLayout from "../layouts/MainLayout.js";
@@ -18,7 +25,7 @@ import HomepageLayout from "../layouts/HomepageLayout";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login.js";
 import Register from "../pages/Register/Register";
-import { Toaster } from "react-hot-toast";
+import Admin from "../pages/Admin/Admin.js";
 
 const initialState = {
   currentUser: null,
@@ -95,6 +102,15 @@ class App extends Component {
                 </MainLayout>
               )
             }
+          />
+          <Route
+            exact
+            path="/admin"
+            render={() => (
+              <HomepageLayout currentUser={currentUser}>
+                <Admin />
+              </HomepageLayout>
+            )}
           />
         </Switch>
       </Router>

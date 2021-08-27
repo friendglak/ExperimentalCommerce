@@ -38,7 +38,7 @@ class LoginComponent extends Component {
             })
             toast('¡Bienvenido!', {
                 icon: '🖤',
-              });
+            });
         } catch (err) {
             toast.error("Contraseña incorrecta")
         }
@@ -53,6 +53,7 @@ class LoginComponent extends Component {
                         <form onSubmit={this.handleSubmit}>
 
                             <FormInput
+                                style={{ width: 600 }}
                                 type="email"
                                 name="email"
                                 value={email}
@@ -60,6 +61,7 @@ class LoginComponent extends Component {
                                 onChange={this.handleChange}
                             />
                             <FormInput
+                                style={{ width: 600 }}
                                 type="password"
                                 name="password"
                                 value={password}
